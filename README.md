@@ -1,4 +1,10 @@
 # eye_disorders
+Classification of six diseases: ACRIMA
+cataract
+Glaucoma
+ODIR-5K
+ORIGA
+retina_disease
 Dataset Link: https://drive.google.com/drive/folders/1-14F4q1D8pSUH1OVzlUk7umA0FH9No6a?usp=drive_link
 
 1. **Import Required Libraries:**
