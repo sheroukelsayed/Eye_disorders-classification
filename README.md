@@ -1,14 +1,97 @@
-# Medications response
- Utilizing Decsion tree to show the medication response on patients
-Develop a classification model using Decision Tree Algorithm
-I use this classification algorithm to build a model from the historical data of patients, and their response to different medications. Then I use the trained decision tree to predict the class of an unknown patient, or to find a proper drug for a new patient.
-About the dataset¶
-Imagine that you are a medical researcher compiling data for a study. You have collected data about a set of patients, all of whom suffered from the same illness. During their course of treatment, each patient responded to one of 5 medications, Drug A, Drug B, Drug c, Drug x and y.
+# eye_disorders
+Dataset Link: https://drive.google.com/drive/folders/1-14F4q1D8pSUH1OVzlUk7umA0FH9No6a?usp=drive_link
 
-Part of your job is to build a model to find out which drug might be appropriate for a future patient with the same illness. The features of this dataset are Age, Sex, Blood Pressure, and the Cholesterol of the patients, and the target is the drug that each patient responded to.
+1. **Import Required Libraries:**
+   - Import necessary libraries such as NumPy, pandas, OpenCV, matplotlib, and scikit-learn modules.
 
-It is a sample of multiclass classifier, and you can use the training part of the dataset to build a decision tree, and then use it to predict the class of an unknown patient, or to prescribe a drug to a new patient.
+2. **Define File Paths:**
+   - Specify the paths for the training and testing datasets.
 
-Downloading the Data
-To download the data, you can use !wget to download it from IBM Object Storage.
-path= 'https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-ML0101EN-SkillsNetwork/labs/Module%203/data/drug200.csv'
+3. **Load and Organize Dataset:**
+   - Read the list of files in the training and testing directories.
+   - Create empty lists to store image paths and corresponding labels.
+
+4. **Generate Image Paths and Labels:**
+   - Iterate through each class folder in the training and testing datasets.
+   - Build the full path for each image file and store it along with the corresponding label.
+
+5. **Create DataFrames:**
+   - Create two pandas DataFrames, `train_df` and `test_df`, to store image paths and labels.
+
+6. **Map Class Labels:**
+   - Map class labels to numerical values using a predefined dictionary (`class_mapping`).
+
+7. **Save DataFrames as CSV:**
+   - Save the generated DataFrames to CSV files (`training_data.csv` and `testing_data.csv`) for future use.
+
+8. **Display Dataset Information:**
+   - Display information about the training and testing DataFrames, such as column names, data types, and non-null counts.
+
+9. **Random Seed Initialization:**
+   - Set a random seed for reproducibility.
+
+10. **Additional Information:**
+    - Various commented-out sections and import statements are included in the code, which are either unused or optional based on the user's needs.
+
+11. **File Paths Output:**
+    - The paths for training and testing datasets are specified and hardcoded; users should modify these paths based on their own directory structure.
+
+12. **End of Code:**
+    - The code concludes with a commented-out line that saves predictions to a NumPy file, which appears to be unused in the provided snippet.
+   
+The training code: 
+### Steps to Describe the Code :
+
+1. **Author Information:**
+   - The script starts with author information, specifying the author as "nour."
+
+2. **Import Required Libraries:**
+   - Import necessary libraries such as NumPy, pandas, OpenCV, matplotlib, TensorFlow, scikit-learn, and others.
+
+3. **GPU Configuration:**
+   - Check and configure GPU availability and memory settings.
+   - Optional GPU memory fraction settings are included for customization.
+
+4. **Data Loading:**
+   - Load training and testing datasets using pandas DataFrames from CSV files.
+
+5. **Biomedical Image Loading and Preprocessing:**
+   - Load biomedical images, resize them, and normalize pixel values.
+   - The script handles errors in reading and processing images and prints the number of skipped images.
+
+6. **Model Architecture:**
+   - Define and compile three models (ResNet101, ResNet50, and VGG16) for image classification.
+   - Transfer learning is used by freezing pre-trained layers and adding custom classifiers.
+
+7. **Model Training:**
+   - Train each model using the training dataset and validate on a validation set.
+   - Save the trained models to HDF5 files.
+
+8. **Model Evaluation:**
+   - Evaluate the models on the validation set using accuracy, F1-score, precision, recall, confusion matrix, and a classification report.
+   - Save evaluation results to text files.
+
+9. **Visualize Results:**
+   - Create bar charts displaying validation accuracy and F1-score for each model.
+
+10. **Test Set Evaluation:**
+    - Apply the trained models to the test set.
+    - Evaluate each model's performance on the test set using the same metrics as for the validation set.
+
+11. **Evaluation Function:**
+    - Define a function (`evaluate_model`) to calculate and print various evaluation metrics.
+
+12. **Results Saving:**
+    - Save the evaluation results to text files for documentation and future reference.
+
+13. **Additional Information:**
+    - The script contains informative comments, including instructions for replacing actual paths and labels.
+
+14. **Visualization:**
+    - Plot bar charts displaying validation accuracy and F1-score for each model.
+
+15. **End of Code:**
+    - The script concludes with the completion of model training, evaluation, and visualization.
+
+
+
